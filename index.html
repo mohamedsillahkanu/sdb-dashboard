@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School-Based ITN Distribution Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0066cc 0%, #004499 50%, #ffffff 100%);
+            min-height: 100vh;
+            color: #333;
+            padding: 0;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #0066cc;
+            padding: 25px 0;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .logo-container {
+            width: 140px;
+            height: 90px;
+            border: 2px solid #0066cc;
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: translateY(-3px);
+        }
+
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 8px;
+        }
+
+        .title-section {
+            text-align: center;
+        }
+
+        .main-title {
+            font-size: 3em;
+            color: #0066cc;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 102, 204, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: #004499;
+            font-weight: 400;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 102, 204, 0.2);
+            border: 1px solid rgba(0, 102, 204, 0.2);
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #0066cc;
+            margin-bottom: 40px;
+            gap: 5px;
+        }
+
+        .tab-button {
+            background: rgba(0, 102, 204, 0.1);
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: #004499;
+            border-radius: 10px 10px 0 0;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            margin-bottom: -3px;
+        }
+
+        .tab-button:hover {
+            background: rgba(0, 102, 204, 0.2);
+            color: #0066cc;
+        }
+
+        .tab-button.active {
+            background: #0066cc;
+            color: white;
+            border-bottom: 3px solid #0066cc;
+            transform: translateY(3px);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Content Sections */
+        .section-header {
+            color: #0066cc;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 102, 204, 0.1);
+            border-radius: 15px;
+            border-left: 5px solid #0066cc;
+        }
+
+        .content-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            border-left: 4px solid #0066cc;
+        }
+
+        .placeholder-content {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 102, 204, 0.05);
+            border-radius: 15px;
+            border: 2px dashed #0066cc;
+            color: #004499;
+            font-size: 1.2em;
+        }
+
+        /* Results Section (Dashboard) */
+        .content-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .content-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .row-indicator {
+            color: #0066cc;
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 15px 30px;
+            background: rgba(0, 102, 204, 0.1);
+            border-radius: 25px;
+            border: 2px solid rgba(0, 102, 204, 0.3);
+        }
+
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 102, 204, 0.3);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 1.1em;
+            color: #004499;
+            font-weight: 600;
+            padding: 10px 20px;
+            background: rgba(0, 102, 204, 0.1);
+            border-radius: 20px;
+            margin-top: 15px;
+        }
+
+        .github-info {
+            background: rgba(0, 102, 204, 0.1);
+            border: 2px solid rgba(0, 102, 204, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #004499;
+            font-size: 1.1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.2em;
+            }
+            
+            .subtitle {
+                font-size: 1.2em;
+            }
+            
+            .logo-section {
+                justify-content: center;
+            }
+            
+            .logo-container {
+                width: 120px;
+                height: 80px;
+            }
+            
+            .dashboard-container {
+                padding: 30px;
+            }
+
+            .tab-navigation {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                border-radius: 10px;
+                margin-bottom: 5px;
+            }
+
+            .tab-button.active {
+                transform: none;
+            }
+
+            .content-grid {
+                gap: 35px;
+            }
+
+            .row-indicator {
+                font-size: 1.1em;
+                padding: 12px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .logo-container {
+                width: 140px;
+                height: 90px;
+            }
+
+            .main-title {
+                font-size: 1.8em;
+            }
+
+            .dashboard-container {
+                padding: 20px;
+            }
+
+            .row-indicator {
+                font-size: 1em;
+                padding: 10px 15px;
+            }
+
+            .image-caption {
+                font-size: 1em;
+            }
+
+            .tab-button {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <!-- Logo Section for 4 logos -->
+            <div class="logo-section">
+                <div class="logo-container">
+                    <img src="ICF-SL.jpg" alt="ICF-SL Logo" class="logo-image">
+                </div>
+                
+                <div class="logo-container">
+                    <img src="NMCP.png" alt="NMCP Logo" class="logo-image">
+                </div>
+                
+                <div class="logo-container">
+                    <img src="abt.png" alt="ABT Logo" class="logo-image">
+                </div>
+                
+                <div class="logo-container">
+                    <img src="pmi.png" alt="PMI Logo" class="logo-image">
+                </div>
+            </div>
+            
+            <!-- Title Section -->
+            <div class="title-section">
+                <h1 class="main-title">School-Based Distribution (SBD) of ITNs</h1>
+                <p class="subtitle">Summary presentation of SBD</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="openTab(event, 'overview')">Overview</button>
+            <button class="tab-button" onclick="openTab(event, 'methodology')">Methodology</button>
+            <button class="tab-button" onclick="openTab(event, 'forms')">Forms</button>
+            <button class="tab-button" onclick="openTab(event, 'trainings')">Trainings</button>
+            <button class="tab-button" onclick="openTab(event, 'dashboard')">Dashboard</button>
+            <button class="tab-button" onclick="openTab(event, 'results')">Results</button>
+            <button class="tab-button" onclick="openTab(event, 'conclusion')">Conclusion & Recommendation</button>
+            <button class="tab-button" onclick="openTab(event, 'acknowledgment')">Acknowledgment</button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div id="overview" class="tab-content active">
+            <div class="section-header">Overview</div>
+            <div class="content-text">
+                The School-Based Distribution (SBD) of Insecticide-Treated Nets (ITNs) represents a strategic approach to malaria prevention in Sierra Leone. This initiative leverages the existing educational infrastructure to ensure comprehensive coverage and accessibility of life-saving bed nets to vulnerable populations.
+            </div>
+            <div class="content-text">
+                <strong>Key Objectives:</strong><br>
+                • Achieve universal coverage of ITNs in target districts<br>
+                • Utilize schools as distribution points for community access<br>
+                • Ensure equitable distribution across rural and urban areas<br>
+                • Strengthen community engagement in malaria prevention efforts
+            </div>
+            <div class="placeholder-content">
+                <strong>Project Overview Summary</strong><br>
+                Additional project details, timeline, and key stakeholders information can be added here.
+            </div>
+        </div>
+
+        <div id="methodology" class="tab-content">
+            <div class="section-header">Methodology</div>
+            <div class="content-text">
+                The SBD methodology was designed to maximize reach and efficiency while ensuring quality distribution. Our approach combines geographic mapping, community engagement, and systematic distribution protocols.
+            </div>
+            <div class="placeholder-content">
+                <strong>Methodology Details</strong><br>
+                • Distribution strategy and protocols<br>
+                • School selection criteria<br>
+                • Coverage mapping methodology<br>
+                • Quality assurance procedures<br>
+                • Monitoring and evaluation framework
+            </div>
+        </div>
+
+        <div id="forms" class="tab-content">
+            <div class="section-header">Forms</div>
+            <div class="placeholder-content">
+                <strong>Distribution Forms & Documentation</strong><br>
+                • School registration forms<br>
+                • ITN distribution tracking sheets<br>
+                • Coverage verification forms<br>
+                • Quality control checklists<br>
+                • Beneficiary feedback forms
+            </div>
+        </div>
+
+        <div id="trainings" class="tab-content">
+            <div class="section-header">Trainings</div>
+            <div class="placeholder-content">
+                <strong>Training Programs</strong><br>
+                • School coordinator training modules<br>
+                • Distribution team capacity building<br>
+                • Community mobilization training<br>
+                • Data collection and reporting training<br>
+                • Quality assurance protocols training
+            </div>
+        </div>
+
+        <div id="dashboard" class="tab-content">
+            <div class="section-header">Dashboard</div>
+            <div class="placeholder-content">
+                <strong>Real-time Monitoring Dashboard</strong><br>
+                • Live distribution tracking<br>
+                • Coverage metrics and analytics<br>
+                • Geographic distribution maps<br>
+                • Performance indicators<br>
+                • Alerts and notifications system
+            </div>
+        </div>
+
+        <div id="results" class="tab-content">
+            <div class="section-header">Results</div>
+            <div class="content-grid">
+                <!-- Row 1 -->
+                <div class="content-row">
+                    <div class="row-indicator">School Distribution Coordinates</div>
+                    <div class="image-container">
+                        <img src="Geocordinates map.png" alt="School Distribution Coordinates" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">Geographic coordinates of all participating schools</div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="content-row">
+                    <div class="row-indicator">Bo District School Coordinates</div>
+                    <div class="image-container">
+                        <img src="BO_District_GPS_Dashboard (2).png" alt="Bo District GPS Dashboard" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">Bo district school coordinates mapping</div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="content-row">
+                    <div class="row-indicator">Bombali District School Coordinates</div>
+                    <div class="image-container">
+                        <img src="BOMBALI_District_GPS_Dashboard (2).png" alt="Bombali District GPS Dashboard" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">Bombali district school coordinates mapping</div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="content-row">
+                    <div class="row-indicator">Coverage Legend</div>
+                    <div class="image-container">
+                        <img src="legend_sbd.png" alt="Coverage Legend" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">School coverage legend and indicators</div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="content-row">
+                    <div class="row-indicator">Bo District School Coverage</div>
+                    <div class="image-container">
+                        <img src="BO_District_Coverage_Dashboard.png" alt="Bo District Coverage Dashboard" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">Bo district school coverage analysis</div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="content-row">
+                    <div class="row-indicator">Bombali District School Coverage</div>
+                    <div class="image-container">
+                        <img src="BOMBALI_District_Coverage_Dashboard.png" alt="Bombali District Coverage Dashboard" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">Bombali district school coverage analysis</div>
+                </div>
+
+                <!-- Row 7 -->
+                <div class="content-row">
+                    <div class="row-indicator">ITNs Distribution Legend</div>
+                    <div class="image-container">
+                        <img src="itns coverage legend.png" alt="ITNs Coverage Legend" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">ITNs distribution district summary legend</div>
+                </div>
+
+                <!-- Row 8 -->
+                <div class="content-row">
+                    <div class="row-indicator">Bo District ITNs Coverage</div>
+                    <div class="image-container">
+                        <img src="BO_District_ITN_Coverage_Dashboard.png" alt="Bo District ITN Coverage" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">Bo district ITNs coverage dashboard</div>
+                </div>
+
+                <!-- Row 9 -->
+                <div class="content-row">
+                    <div class="row-indicator">Bombali District ITNs Coverage</div>
+                    <div class="image-container">
+                        <img src="BOMBALI_District_ITN_Coverage_Dashboard.png" alt="Bombali District ITN Coverage" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">Bombali district ITNs coverage dashboard</div>
+                </div>
+
+                <!-- Row 10 -->
+                <div class="content-row">
+                    <div class="row-indicator">Overall Summary</div>
+                    <div class="image-container">
+                        <img src="WhatsApp Image 2025-07-05 at 8.45.34 AM.jpeg" alt="Overall Summary" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">Overall distribution summary and statistics</div>
+                </div>
+
+                <!-- Row 11 -->
+                <div class="content-row">
+                    <div class="row-indicator">District Summary</div>
+                    <div class="image-container">
+                        <img src="WhatsApp Image 2025-07-05 at 8.40.34 AM.jpeg" alt="District Summary" class="dashboard-image">
+                    </div>
+                    <div class="image-caption">District-wise summary and comparison</div>
+                </div>
+            </div>
+
+            <div class="github-info">
+                <strong>ICF-SL, a local firm with international standards</strong><br>
+            </div>
+        </div>
+
+        <div id="conclusion" class="tab-content">
+            <div class="section-header">Conclusion & Recommendations</div>
+            <div class="content-text">
+                The School-Based Distribution of ITNs has demonstrated significant success in achieving comprehensive coverage across Bo and Bombali districts. The strategic use of educational infrastructure has proven effective in reaching both rural and urban communities.
+            </div>
+            <div class="placeholder-content">
+                <strong>Key Conclusions & Recommendations</strong><br>
+                • Lessons learned from implementation<br>
+                • Best practices and success factors<br>
+                • Challenges encountered and solutions<br>
+                • Recommendations for future distributions<br>
+                • Scale-up considerations and improvements
+            </div>
+        </div>
+
+        <div id="acknowledgment" class="tab-content">
+            <div class="section-header">Acknowledgment</div>
+            <div class="content-text">
+                We extend our sincere gratitude to all partners, stakeholders, and communities who made this School-Based Distribution initiative a success.
+            </div>
+            <div class="placeholder-content">
+                <strong>Special Thanks To:</strong><br>
+                • Ministry of Health and Sanitation<br>
+                • National Malaria Control Programme (NMCP)<br>
+                • President's Malaria Initiative (PMI)<br>
+                • Abt Associates<br>
+                • School administrators and teachers<br>
+                • Community leaders and volunteers<br>
+                • All distribution team members
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab contents
+            var tabcontents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontents.length; i++) {
+                tabcontents[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            var tabbuttons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            
+            // Show the selected tab content and mark button as active
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
