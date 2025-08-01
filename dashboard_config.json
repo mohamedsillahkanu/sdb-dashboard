@@ -1,0 +1,406 @@
+{
+  "dashboard": {
+    "title": "Malaria Program Review (MPR)",
+    "subtitle": "Analysis and System Design",
+    "organization": "Informatics Consultancy Firm Sierra Leone (ICF-SL)",
+    "tagline": "A local firm with international standards"
+  },
+  "logos": [
+    {
+      "id": "burkina",
+      "src": "SP.png",
+      "alt": "Burkina Logo",
+      "enabled": true
+    },
+    {
+      "id": "icf",
+      "src": "ICF-SL.jpg",
+      "alt": "ICF-SL Logo",
+      "enabled": true
+    }
+  ],
+  "tabs": [
+    {
+      "id": "overview",
+      "name": "Overview",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "introduction",
+          "title": "Malaria Program Review (MPR) Introduction",
+          "content": "The Malaria Program Review (MPR) is a comprehensive, country-led assessment designed to evaluate the performance, relevance, and impact of all aspects of a national malaria response. For the National Malaria Control Programme (NMCP) in Sierra Leone, the MPR is a critical opportunity to reflect on progress, identify gaps, and re-align priorities with the evolving malaria epidemiology, global best practices, and national health goals.",
+          "enabled": true
+        },
+        {
+          "id": "purpose",
+          "title": "Purpose of the MPR",
+          "content": "The main purpose of the MPR is to ensure that the malaria program remains efficient, effective, and results-oriented. It supports evidence-based planning and strengthens program accountability, coordination, and resource allocation. The MPR also prepares the groundwork for the development of new strategic plans and funding proposals to partners such as the Global Fund and PMI.",
+          "enabled": true
+        },
+        {
+          "id": "focus_areas",
+          "title": "Key Focus Areas of the Review",
+          "content": "• <strong>Prevention Strategies:</strong> Evaluation of long-lasting insecticidal net (LLIN) mass campaigns, routine distribution through antenatal clinics (ANC) and immunization platforms (EPI), and School-Based Distribution (SBD). Assessment of Indoor Residual Spraying (IRS) coverage and impact where implemented.<br><br>• <strong>Case Management and Diagnosis:</strong> Availability and use of rapid diagnostic tests (RDTs) and microscopy in health facilities, timely access to quality-assured antimalarial drugs, and training/supervision of health workers on treatment guidelines.<br><br>• <strong>Surveillance, Monitoring, and Evaluation:</strong> Review of data collection, reporting, and use of DHIS2; assessment of test positivity rates, incidence, and mortality trends; and evaluation of community-based surveillance.<br><br>• <strong>Community Engagement and Social Behaviour Change:</strong> Effectiveness of SBCC strategies, community ownership, and the role of SBD in empowering school children as malaria prevention champions.<br><br>• <strong>Programme Governance and Coordination:</strong> Review of institutional capacity, partnerships between MoHS and MBSSE, and financing mechanisms for malaria interventions.",
+          "enabled": true
+        },
+        {
+          "id": "sbd_relevance",
+          "title": "Relevance of School-Based ITN Distribution",
+          "content": "The School-Based Distribution (SBD) of Insecticide-Treated Nets (ITNs) is a promising intervention that addresses the challenge of maintaining universal ITN coverage between mass campaigns. Its integration into the MPR highlights considerations such as:<br><br>• <strong>Coverage and Equity:</strong> Assessment of SBD coverage in classes 1, 3, and 5, including marginalized groups.<br>• <strong>Partnerships:</strong> Operational collaboration between health and education sectors.<br>• <strong>Outcomes:</strong> Usage rates, knowledge of ITN care, and its impact on malaria morbidity among school-age children.",
+          "enabled": true
+        },
+        {
+          "id": "benefits_conclusion",
+          "title": "Expected Benefits & Conclusion",
+          "content": "<strong>Expected Benefits of the Review:</strong><br>• Provide an evidence base to validate SBD as an effective strategy for achieving universal ITN coverage.<br>• Identify best practices and challenges in current malaria interventions to inform future programming.<br>• Strengthen inter-ministerial collaboration for sustained delivery of integrated services.<br>• Guide the development of a new malaria strategic plan (2026–2030), incorporating innovative, equitable, and data-driven strategies.<br><br><strong>Conclusion:</strong><br>The Malaria Program Review is not just a routine assessment; it is a strategic pivot point for NMCP to enhance impact, secure sustained funding, and ultimately achieve malaria elimination goals. With interventions like the School-Based ITN Distribution gaining traction, Sierra Leone is well-positioned to redefine its malaria control architecture with a stronger emphasis on integration, innovation, and inclusiveness.",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "impact_indicators",
+      "name": "Impact Indicators",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "impact_overview",
+          "title": "Impact Indicators Overview",
+          "content": "Analysis of key malaria impact indicators including case incidence, test positivity rates, mortality rates, and hospital admissions across Sierra Leone.",
+          "images": [
+            "indicator_01_Malaria_case_incidence_per_1000_people_per_year.png",
+            "malaria admission.png"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "mortality_analysis",
+          "title": "Mortality and Test Positivity Analysis", 
+          "content": "Comprehensive review of malaria mortality patterns and diagnostic testing outcomes.",
+          "images": [
+            "indicator_03_Malaria_test_positivity_rate_pct.png",
+            "indicator_07_Malaria_mortality_rate_per_100,000_persons_per_yea.png"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "case_reports",
+          "title": "Case Reporting Analysis",
+          "content": "Analysis of inpatient deaths and reported malaria cases (both presumed and confirmed) trends.",
+          "images": [
+            "Inpatient malaria deaths.png",
+            "Reported malaria cases (presumed and confirmed).png"
+          ],
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "crude_incidence",
+      "name": "Crude Incidence",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "national_trends",
+          "title": "📊 National Crude Incidence Trends",
+          "content": "National overview of malaria crude incidence trends and district-level subplot analysis.",
+          "images": [
+            "national_crude_incidence_trend (3).png",
+            "crude_incidence_trend_subplots_4x4.png"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "geographic_analysis",
+          "title": "🗺️ Geographic Distribution Analysis",
+          "content": "Spatial analysis of crude incidence changes across districts and chiefdoms.",
+          "images": [
+            "district_change_overview_map.png",
+            "national_crude_incidence_change_map.png"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "eastern_districts",
+          "title": "🌅 Eastern Province Districts",
+          "content": "Detailed analysis of crude incidence trends in Kailahun, Kenema, and Kono districts.",
+          "images": [
+            "crude_incidence_trend_KAILAHUN.png",
+            "crude_incidence_trend_KENEMA.png"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "eastern_maps",
+          "title": "🗺️ Eastern Province Chiefdom Maps",
+          "content": "Chiefdom-level crude incidence mapping for Eastern Province districts.",
+          "images": [
+            "subplot_all_chiefdoms_KAILAHUN.png",
+            "subplot_all_chiefdoms_KENEMA.png"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "northern_districts",
+          "title": "🧭 Northern Province Districts",
+          "content": "Analysis of crude incidence patterns in Northern Province including Bombali, Falaba, Koinadugu, and Tonkolili.",
+          "images": [
+            "crude_incidence_trend_BOMBALI.png",
+            "crude_incidence_trend_FALABA.png"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "northwest_districts",
+          "title": "🌊 Northwest Districts",
+          "content": "Crude incidence trends in Kambia, Karene, and Port Loko districts.",
+          "images": [
+            "crude_incidence_trend_KAMBIA.png",
+            "crude_incidence_trend_KARENE.png"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "southern_districts",
+          "title": "🌴 Southern Province Districts",
+          "content": "Southern Province malaria trends including Bo, Bonthe, Moyamba, and Pujehun.",
+          "images": [
+            "crude_incidence_trend_BO.png",
+            "crude_incidence_trend_BONTHE.png"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "western_districts",
+          "title": "🏙️ Western Area Districts",
+          "content": "Urban and rural Western Area crude incidence analysis.",
+          "images": [
+            "crude_incidence_trend_WESTERN RURAL.png",
+            "crude_incidence_trend_WESTERN URBAN.png"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "chie_analysis",
+          "title": "📈 CHIE Analysis by Region",
+          "content": "CHIE (Chiefdom Health Information Exchange) subplot analysis across key districts.",
+          "images": [
+            "crude_incidence_CHIE_subplots_KAILAHUN.png",
+            "crude_incidence_CHIE_subplots_KENEMA.png"
+          ],
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "suspected_cases",
+      "name": "Suspected Cases",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "suspected_overview",
+          "title": "🔍 Suspected Cases Overview",
+          "content": "Analysis of suspected malaria cases reporting patterns and trends across all districts.",
+          "enabled": true
+        },
+        {
+          "id": "suspected_trends",
+          "title": "📈 Suspected Cases Trends",
+          "content": "Temporal analysis of suspected malaria case reporting by district and region.",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "tested_cases",
+      "name": "Tested Cases",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "testing_overview",
+          "title": "🧪 Testing Overview",
+          "content": "Analysis of malaria testing coverage, methods used (RDT vs microscopy), and testing trends.",
+          "enabled": true
+        },
+        {
+          "id": "testing_capacity",
+          "title": "⚕️ Testing Capacity Analysis",
+          "content": "Assessment of diagnostic capacity and testing accessibility across health facilities.",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "confirmed_cases",
+      "name": "Confirmed Cases",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "confirmation_overview",
+          "title": "✅ Confirmed Cases Overview",
+          "content": "Analysis of confirmed malaria cases, confirmation rates, and diagnostic accuracy patterns.",
+          "enabled": true
+        },
+        {
+          "id": "confirmation_trends",
+          "title": "📊 Confirmation Rate Trends",
+          "content": "Temporal and spatial analysis of malaria case confirmation rates and patterns.",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "treated_cases",
+      "name": "Treated Cases",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "treatment_overview",
+          "title": "💊 Treatment Overview",
+          "content": "Analysis of malaria treatment coverage, drug availability, and treatment completion rates.",
+          "enabled": true
+        },
+        {
+          "id": "treatment_outcomes",
+          "title": "🎯 Treatment Outcomes",
+          "content": "Assessment of treatment effectiveness and patient outcomes across different regions.",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "presumed_cases",
+      "name": "Presumed Cases",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "presumed_overview",
+          "title": "❓ Presumed Cases Overview",
+          "content": "Analysis of presumptively treated malaria cases and factors influencing presumptive treatment decisions.",
+          "enabled": true
+        },
+        {
+          "id": "presumed_patterns",
+          "title": "🔄 Presumptive Treatment Patterns",
+          "content": "Geographic and temporal patterns of presumptive malaria treatment across health facilities.",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "prevention_interventions",
+      "name": "Prevention Interventions",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "itn_distribution",
+          "title": "🛡️ ITN Distribution Analysis",
+          "content": "Analysis of Insecticide-Treated Net distribution, coverage, and utilization patterns.",
+          "enabled": true
+        },
+        {
+          "id": "irs_coverage",
+          "title": "🏠 Indoor Residual Spraying",
+          "content": "Assessment of IRS implementation, coverage, and effectiveness in targeted areas.",
+          "enabled": true
+        },
+        {
+          "id": "sbd_program",
+          "title": "🏫 School-Based Distribution Program",
+          "content": "Evaluation of the School-Based Distribution program implementation and outcomes.",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "surveillance_data",
+      "name": "Surveillance & Data",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "dhis2_analysis",
+          "title": "📊 DHIS2 Data Analysis",
+          "content": "Assessment of data quality, completeness, and utilization from the DHIS2 system.",
+          "enabled": true
+        },
+        {
+          "id": "reporting_quality",
+          "title": "📋 Reporting Quality Assessment",
+          "content": "Analysis of data reporting timeliness, completeness, and accuracy across facilities.",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "conclusions",
+      "name": "Conclusions & Recommendations",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "key_findings",
+          "title": "🔍 Key Findings",
+          "content": "The Malaria Program Review reveals significant progress in several areas while highlighting critical gaps that require immediate attention:<br><br>• <strong>Decline in Incidence:</strong> Overall reduction in malaria incidence across most districts<br>• <strong>Improved Testing:</strong> Increased diagnostic testing coverage and quality<br>• <strong>Enhanced Surveillance:</strong> Strengthened data collection and reporting systems<br>• <strong>Prevention Success:</strong> School-Based Distribution showing promising results",
+          "enabled": true
+        },
+        {
+          "id": "challenges",
+          "title": "⚠️ Key Challenges Identified",
+          "content": "• <strong>Geographic Disparities:</strong> Persistent high transmission areas in certain districts<br>• <strong>Resource Constraints:</strong> Limited funding affecting intervention scale-up<br>• <strong>Health System Gaps:</strong> Inadequate staffing and infrastructure in remote areas<br>• <strong>Data Quality Issues:</strong> Inconsistent reporting from some facilities<br>• <strong>Community Engagement:</strong> Variable levels of community participation",
+          "enabled": true
+        },
+        {
+          "id": "recommendations",
+          "title": "📝 Strategic Recommendations",
+          "content": "• <strong>Scale-up SBD:</strong> Expand School-Based Distribution to all districts<br>• <strong>Strengthen Surveillance:</strong> Improve data quality and real-time monitoring<br>• <strong>Target High-Risk Areas:</strong> Focus resources on persistent transmission hotspots<br>• <strong>Enhance Partnerships:</strong> Strengthen coordination between health and education sectors<br>• <strong>Community Mobilization:</strong> Increase community ownership and participation<br>• <strong>Capacity Building:</strong> Train additional health workers and improve supervision",
+          "enabled": true
+        },
+        {
+          "id": "next_steps",
+          "title": "🚀 Next Steps (2025-2030)",
+          "content": "• <strong>Strategic Plan Development:</strong> Develop new 5-year malaria strategic plan<br>• <strong>Resource Mobilization:</strong> Secure funding from Global Fund and other partners<br>• <strong>Implementation Framework:</strong> Establish clear timelines and accountability mechanisms<br>• <strong>Monitoring System:</strong> Implement robust M&E framework with regular reviews<br>• <strong>Innovation Integration:</strong> Pilot new technologies and approaches",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "acknowledgments",
+      "name": "Acknowledgments",
+      "enabled": true,
+      "sections": [
+        {
+          "id": "special_thanks",
+          "title": "🙏 Special Thanks",
+          "content": "We extend our sincere gratitude to all partners, stakeholders, and communities who made this Malaria Program Review and School-Based Distribution initiative a tremendous success.",
+          "images": [
+            "IMG-20241114-WA0017.jpg"
+          ],
+          "enabled": true
+        },
+        {
+          "id": "key_partners",
+          "title": "🤝 Key Partners and Collaborators",
+          "content": "• <strong>Ministry of Health and Sanitation (MoHS)</strong> - Strategic leadership and policy guidance<br>• <strong>National Malaria Control Programme (NMCP)</strong> - Technical expertise and program coordination<br>• <strong>President's Malaria Initiative (PMI)</strong> - Financial support and technical assistance<br>• <strong>Abt Associates</strong> - Implementation support and capacity building<br>• <strong>School Administrators and Teachers</strong> - Frontline implementation and student engagement<br>• <strong>School Quality Assurance (SQA) Officers</strong> - Quality monitoring and supervision<br>• <strong>PHU Staff</strong> - Community-level health service delivery<br>• <strong>Community Leaders</strong> - Mobilization and advocacy support<br>• <strong>Students and Families</strong> - Active participation and program champions",
+          "enabled": true
+        },
+        {
+          "id": "institutional_support",
+          "title": "🏢 Institutional Support",
+          "content": "• <strong>WHO Sierra Leone</strong> - Technical guidance and standards<br>• <strong>UNICEF</strong> - Child health and education sector coordination<br>• <strong>Global Fund</strong> - Financial resources and program oversight<br>• <strong>Ministry of Basic and Senior Secondary Education (MBSSE)</strong> - Educational platform access<br>• <strong>District Health Management Teams</strong> - Local coordination and supervision<br>• <strong>Chiefdom Health Committees</strong> - Community-level governance and support",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "districts": [
+    "KAILAHUN", "KENEMA", "KONO", "BOMBALI", "FALABA", "KOINADUGU", 
+    "TONKOLILI", "KAMBIA", "KARENE", "PORT LOKO", "BO", "BONTHE", 
+    "MOYAMBA", "PUJEHUN", "WESTERN RURAL", "WESTERN URBAN"
+  ],
+  "settings": {
+    "default_tab": "overview",
+    "navigation_collapsed": true,
+    "sections_collapsed": true,
+    "show_placeholders": false,
+    "image_hover_effects": true,
+    "auto_collapse_navigation": true
+  }
+}
